@@ -1,0 +1,52 @@
+# Data
+data/
+
+# Trained models
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+models/*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+.env/
+env/
+.venv/
+
+# Environment variables
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MLflow / Experiment tracking
+mlruns/
+mlartifacts/
+
+# Logs
+logs/
+*.log
+
+# Distribution / Packaging
+*.whl
