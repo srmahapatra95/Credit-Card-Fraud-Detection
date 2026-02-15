@@ -9,7 +9,6 @@ from app.routes.predict import router as predict_router
 from app.routes.users import router as users_router
 from dotenv import load_dotenv
 import os
-from supabase import create_client, Client
 
 
 @asynccontextmanager
