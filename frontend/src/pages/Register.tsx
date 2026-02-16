@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "@/api/client";
 import { User, Mail, Lock, Loader2, AlertCircle, CircleCheck, CircleX } from "lucide-react";
 
 export default function Register() {
@@ -27,7 +27,7 @@ export default function Register() {
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(async () => {
       try {
-        const res = await axios.get(`/api/users/check-username/${username}`);
+        const res = await api.get(`/users/check-username/${username}`);
         setUsernameStatus(res.data.available ? "available" : "taken");
       } catch {
         setUsernameStatus("idle");
@@ -44,7 +44,7 @@ export default function Register() {
     setError("");
     setLoading(true);
     try {
-      await axios.post("/api/users/register", form);
+      await api.post("/users/register", form);
       navigate("/login");
     } catch (err: any) {
       const detail = err.response?.data?.detail;

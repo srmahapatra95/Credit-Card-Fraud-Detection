@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from "react";
-import axios from "axios";
+import api from "@/api/client";
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -16,7 +16,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const checkAuth = useCallback(async () => {
     try {
-      await axios.get("/api/users/me", { withCredentials: true });
+      await api.get("/users/me");
       setIsAuthenticated(true);
     } catch {
       setIsAuthenticated(false);
@@ -34,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(async () => {
-    await axios.post("/api/users/logout", {}, { withCredentials: true });
+    await api.post("/users/logout");
     setIsAuthenticated(false);
   }, []);
 

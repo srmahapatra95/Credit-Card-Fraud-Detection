@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "@/api/client";
 import { User, Lock, Loader2, AlertCircle } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 
@@ -16,7 +16,7 @@ export default function Login() {
     setError("");
     setLoading(true);
     try {
-      await axios.post("/api/users/login", form, { withCredentials: true });
+      await api.post("/users/login", form);
       login();
       navigate("/dashboard");
     } catch (err: any) {

@@ -1,10 +1,5 @@
-import axios from "axios";
+import api from "./client";
 import type { BatchResponse } from "@/types/prediction";
-
-const api = axios.create({
-  baseURL: "/api",
-  withCredentials: true,
-});
 
 export async function predictBatch(file: File): Promise<BatchResponse> {
   const formData = new FormData();
