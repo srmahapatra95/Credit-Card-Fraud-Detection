@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = BASE_DIR / "models" / "xgboost_fraud_detector.joblib"
 SAMPLE_CSV_PATH = BASE_DIR / "sample_transactions.csv"
 
