@@ -46,7 +46,7 @@ async def login(user_login: UserLogin, response: Response, db: AsyncSession = De
         value=access_token,
         httponly=True,
         secure=True,
-        samesite="lax",
+        samesite="none",
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
     )
     return {"message": "Login successful"}
@@ -54,7 +54,7 @@ async def login(user_login: UserLogin, response: Response, db: AsyncSession = De
 
 @router.post("/logout")
 async def logout(response: Response):
-    response.delete_cookie(key="access_token", httponly=True, secure=True, samesite="lax")
+    response.delete_cookie(key="access_token", httponly=True, secure=True, samesite="none")
     return {"message": "Logged out"}
 
 
