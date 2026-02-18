@@ -10,15 +10,15 @@ from app.routes.users import router as users_router
 from dotenv import load_dotenv
 import os
 
-
+"""
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     yield
+"""
 
-
-app = FastAPI(title="Fraud Detection API", lifespan=lifespan)
+app = FastAPI(title="Fraud Detection API")
 
 app.add_middleware(
     CORSMiddleware,
