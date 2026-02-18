@@ -18,7 +18,7 @@ A full-stack machine learning application that detects fraudulent credit card tr
 ```
 ├── backend/
 │   └── app/
-│       ├── main.py              # FastAPI app + CORS + lifespan
+│       ├── main.py              # FastAPI app + CORS
 │       ├── auth.py              # JWT creation/validation, password hashing
 │       ├── config.py            # Feature columns, model path, CORS origins
 │       ├── database.py          # Async SQLAlchemy + Supabase PostgreSQL
